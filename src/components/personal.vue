@@ -48,6 +48,7 @@
     padding: 10px;
     width: 100vw;
     color: #ffffff;
+    font-weight: 600;
   }
 
   .psInfo img {

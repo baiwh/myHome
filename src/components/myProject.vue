@@ -2,7 +2,8 @@
   <div class="project">
     <div v-for="(item,index) in info" class="projectDiv">
       <div>
-        <img v-bind:src="'./../../static/'+item.srcImg+'.png'" alt="">
+        <img v-bind:src="'./../../static/'+item.srcImg+'.png'" alt=""
+        v-bind:style="">
       </div>
       <div class="projectInfo">
         <h2>{{item.name}}</h2>
@@ -10,7 +11,7 @@
           <li><h3>项目简介</h3></li>
           <project-info v-bind:pInfo="item.pInfo1"></project-info>
           <li v-if="item.pInfo2!=''"><h3>开发中 填过的坑 和 总结的笔记</h3></li>
-          <project-info v-bind:pInfo="item.pInfo2" v-if="item.pInfo2!=''"></project-info>
+          <note-list v-bind:pInfo="item.pInfo2" v-if="item.pInfo2!=''"></note-list>
           <li v-if="item.pInfo3!=''"><h3>实现的一些效果</h3></li>
           <project-info v-bind:pInfo="item.pInfo3" v-if="item.pInfo3!=''"></project-info>
         </ul>
@@ -21,6 +22,7 @@
 </template>
 <script>
   import projectInfo from './projectInfo.vue'
+  import noteList from './noteList.vue'
   export default {
     name: 'myProject',
     data() {
@@ -28,7 +30,7 @@
         info: [
           {
             ind: '项目经验1',
-            srcImg: 'lift',
+            srcImg: 'sign',
             name: 'Vue版lift',
             pInfo1: [
               '这是一个前后端分离的任务管理网站',
@@ -94,39 +96,37 @@
       }
     },
     components: {
-      projectInfo: projectInfo
+      projectInfo: projectInfo,
+      noteList:noteList
     }
   }
 </script>
 <style>
   .project {
     width: 70vw;
-    /*border: 1px solid #dcdcdc;*/
-    /*box-shadow: 0 0 50px #979797;*/
-    border-radius: 10px;
     margin: 3% 15%;
     padding: 4vw;
     float: left;
     z-index: 5;
   }
-
   .projectDiv {
     width: 62vw;
     float: left;
   }
   .projectHr{
     background: #dcdcdc;
-    height: 5px;
-    width: 40vw;
+    height: 1px;
+    width: 62vw;
     margin: 5vh 0;
     float: left;
     border-radius: 70%;
     border: transparent;
   }
   .project img {
-    width: 20vw;
+    max-width: 20vw;
     float: left;
     margin: 2vw;
+    max-height: 20vw;
   }
 
   .projectInfo {
