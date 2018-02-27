@@ -1,19 +1,31 @@
 <template>
   <div id="trueBody">
+    <home-nav></home-nav>
     <div class="bg">
       <!--<img v-bind:src="'./../../static/'+backgroundSrc" alt="">-->
     </div>
     <personal></personal>
-    <div class="window">
-      <div>项目经验</div>
-    </div>
     <div class="projectBg">
       <my-project></my-project>
     </div>
-    <div class="noteBg">
+    <div class="window">
       <my-note></my-note>
     </div>
-    <footer class="footer">
+    <div id="other">
+      <div class="skill">
+        <ul>
+          <li v-for="item in skillInfo">{{item}}</li>
+        </ul>
+      </div>
+      <div class="github">
+        <img src="./../../static/github.png" alt="">
+      </div>
+      <div class="otherImg">
+        <img src="" alt="">
+        <img src="" alt="">
+      </div>
+    </div>
+    <footer class="footer" id="try">
       <div class="center">
         <img src="./../assets/beian.png"/>
         <a target="_blank"
@@ -30,25 +42,25 @@
   import personal from './personal.vue'
   import myProject from './myProject.vue'
   import myNote from './myNote.vue'
+  import homeNav from './homeNav.vue'
   export default {
     name: 'home',
     data() {
-      return {}
+      return {
+        skillInfo: [
+          '开发语言：HTML、css 和 JavaScript 。熟悉 Jquery、vue、vuex、axios',
+          '版本管理工具：熟悉 git 管理工具，了解从搭建本地版本库，连接远程仓库，以及基本的版本控制操作',
+          '开发工具：熟悉 webStorm，Hbuilder',
+          '熟悉 chrome 前端调试工具',
+          '熟悉 MarkDown 语法，日常写文档使用 。熟悉 Photoshop 的一般操作，切图修图等'
+        ]
+      }
     },
     components: {
       personal: personal,
       myProject: myProject,
-      myNote: myNote
-    },
-    computed: {
-      backgroundSrc(){
-//          let scroll=document.getElementById('trueBody').scrollTop;
-//            if(scroll<3000){
-//                return 'bg.jpg';
-//            }else {
-//                return 'lift.png';
-//            }
-      }
+      myNote: myNote,
+      homeNav: homeNav
     }
   }
 </script>
@@ -71,50 +83,52 @@
     width: 100%;
   }
 
-  .window {
-    height: 80vh;
-    width: 100vw;
-    background: rgba(0, 0, 0, 0.3);
-    /*background: transparent;*/
-    float: left;
-  }
-
-  .window div {
-    color: #ffffff;
-    float: left;
-    font-size: 50px;
-    transform: translate(-50%, -50%);
-    top: 50%;
-    left: 50%;
-  }
-
   .projectBg {
     width: 100vw;
     background: #ffffff;
     float: left;
   }
 
-  .noteBg {
-    background: url("./../../static/sky.jpg") no-repeat;
-    background-size: 100% 100%;
-    float: left;
-    width: 100vw;
+  .window {
     height: 100vh;
+    width: 100vw;
+    background: rgba(0, 0, 0, 0.3);
+    /*background: transparent;*/
+    float: left;
+  }
+  #other{
+    height: 100vh;
+    width: 100vw;
+    float: left;
+    /*background: #ffffff;*/
+  }
+  .skill{
+    height: 50vh;
+    float: left;
+  }
+  .github img{
+    height: 50vh;
+  }
+  .otherImg{
+    
   }
 
   footer {
     width: 100vw;
-    background: #dcdcdc;
+    color: #dcdcdc;
     float: left;
+    border-top: 1px solid #dcdcdc;
+    background: #ffffff;
   }
 
   .footer a {
     margin: 10px;
     line-height: 1.5;
+    color: #979797;
   }
 
   .center {
-    transform: translate(-50%,0);
+    transform: translate(-50%, 0);
     float: left;
     left: 50%;
     margin: 10px;

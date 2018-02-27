@@ -6,7 +6,7 @@
         v-bind:style="">
       </div>
       <div class="projectInfo">
-        <h2>{{item.name}}</h2>
+        <a v-bind:href="item.link"><h2>{{item.name}}<img src="./../assets/link.png" alt=""></h2></a>
         <ul class="projectUl">
           <li><h3>项目简介</h3></li>
           <project-info v-bind:pInfo="item.pInfo1"></project-info>
@@ -32,20 +32,31 @@
             ind: '项目经验1',
             srcImg: 'sign',
             name: 'Vue版lift',
+            link:'http://www.codinghou.com/vueLift/',
             pInfo1: [
-              '这是一个前后端分离的任务管理网站',
+              '这是一个独立完成的前后端分离的任务管理网站',
+              '是用vue和vuex重构的lift',
+              '左侧导航部分使用了vue-router',
+              '数据的交互使用了axios'
             ],
             pInfo2: [
-              '啦啦'
+              'axios跨域请求的处理',
+              '在父组件中调用子组件中的方法',
+              'vuex和axios的结合使用',
+              'v-model对于checked初始化以及自定义可输入元素的影响'
             ],
             pInfo3: [
-              '啦啦'
+              '通过vuex处理子组件向父组件传递信息',
+              '使用v-for的情况下checkBox的单选和多选',
+              '使用v-for的情况下控制各个元素的显示和隐藏、class和style的切换、初始化样式的不同',
+              '筛选数据的多选和单选'
             ]
           },
           {
             ind: '项目经验2',
             srcImg: 'lift',
             name: 'jQuery版lift',
+            link:'http://www.codinghou.com/index/index.action',
             pInfo1: [
               '这是和后台一起开发的任务管理网站',
               '主要负责网站的页面设计，JavaScript、css、HTML的编写',
@@ -61,19 +72,18 @@
             pInfo3: [
               '自定义实现了登录页面密码强弱判断的动画效果',
               '自定义实现了CheckBox打钩的动画效果',
-              '实现了进度条动态随CheckBox动态变化的效果',
-              '实现了编辑时input切换的效果',
               '自定义实现了年月日选择列表的动画效果',
-              '实现了时间轴的显示效果',
               '通过大量的Ajax实现了页面无刷新保存和修改数据'
             ]
           },
           {
             ind: '项目经验3',
             srcImg: 'myWeb1',
+            link:'',
             name: '个人页面',
             pInfo1: [
-              '这是两个H5和JavaScript的练手网页',
+              '这是一个H5、js、jQuery的练手网页',
+              '页面采用了弹性布局',
               '自定义实现了鼠标悬浮放大，移动显示等效果',
               '实现了页面在小窗口和横竖屏的自适应',
             ],
@@ -83,11 +93,12 @@
           {
             ind: '项目经验4',
             srcImg: 'myWeb3',
+            link:'',
             name: '个人页面',
             pInfo1: [
-              '这是两个H5和JavaScript的练手网页',
+              '这是一个H5、js、jQuery的练手网页',
               '自定义实现了悬浮导航栏，轮播图等效果',
-              '实现了鼠标悬浮移出，图片散拢的效果'
+              '实现了鼠标悬浮时的移出、散拢、显示和隐藏、放大等效果'
             ],
             pInfo2: [],
             pInfo3: []
@@ -132,6 +143,14 @@
   .projectInfo {
     width: 35vw;
     float: right;
+  }
+  .projectInfo img{
+    height: 25px;
+    width: 25px;
+    float: left;
+    margin: 0;
+    left: 23vw;
+    top: 1vh;
   }
   .projectUl{
     margin: 2vh 2vw;

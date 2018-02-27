@@ -35,20 +35,30 @@
           }
         ]
       }
+    },
+    mounted(){
+      this.getNote();
+    },
+    methods:{
+        getNote:function () {
+
+        }
     }
   }
 </script>
 <style>
   .note{
     width: 70vw;
-    margin: 3% 15%;
+    margin: 8% 15%;
     float: left;
     padding: 2vw;
   }
   .notes {
     width: 20vw;
     float: left;
-    background: rgba(255,255,255,0.5);
+    /*background: rgba(0,0,0,0.2);*/
+    background: #dcdcdc;
+    /*background: rgba(255,255,255,0.5);*/
     margin: 1vw;
     padding: 2vw;
   }
