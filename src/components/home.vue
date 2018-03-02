@@ -21,8 +21,8 @@
         <img src="./../../static/github.png" alt="">
       </div>
       <div class="otherImg">
-        <img src="" alt="">
-        <img src="" alt="">
+        <img src="./../assets/me.png" alt="">
+        <img src="./../assets/github.png" alt="">
       </div>
     </div>
     <footer class="footer" id="try">
@@ -106,11 +106,17 @@
     height: 50vh;
     float: left;
   }
+  .skill li{
+
+  }
   .github img{
     height: 50vh;
   }
   .otherImg{
-    
+
+  }
+  .otherImg img{
+
   }
 
   footer {

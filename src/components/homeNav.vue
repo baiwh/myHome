@@ -33,18 +33,47 @@
         showNav: '0'
       }
     },
-    mounted(){
-      window.addEventListener('scroll',this.navShow);
+    mounted:function(){
+
+      if(this.getScroll>500){
+          this.showNav='1';
+      }
+    },
+    computed:{
+      getScroll:function() {
+        var scrollTop = 0;
+        if (document.documentElement && document.documentElement.scrollTop) {
+          scrollTop = document.documentElement.scrollTop;
+        } else if (document.body) {
+          scrollTop = document.body.scrollTop;
+        }
+        return scrollTop;
+      },
     },
     methods: {
       navShow(){
         let height = document.body.scrollTop;
       },
-      navClick(event){
-//        let height = document.getElementById('app').;
-        let a=document.body.offsetTop;
-//        let b=a
-        alert(a);
+      getScrolla:function() {
+        var scrollTop = 0;
+        if (document.documentElement && document.documentElement.scrollTop) {
+          scrollTop = document.documentElement.scrollTop;
+        } else if (document.body) {
+          scrollTop = document.body.scrollTop;
+        }
+        return scrollTop;
+      },
+      navClick:function(){
+        function sroll() {
+          var scrollTop = 0;
+          if (document.documentElement && document.documentElement.scrollTop) {
+            scrollTop = document.documentElement.scrollTop;
+          } else if (document.body) {
+            scrollTop = document.body.scrollTop;
+          }
+          return scrollTop;
+        }
+        alert(sroll());
       }
     }
   }
